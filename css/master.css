@@ -3,15 +3,37 @@ body {
   background-color: #eeeeee;
 }
 
+@supports (display:grid) {
+  body > header {
+    display: grid;
+    grid: 1fr / 1fr;
+  }
+  nav{
+    display: inline-grid;
+    grid: 1fr / 1fr 1fr 1fr 1fr;
+    text-align: right;
+  }
 
-body > header {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  main{
+    display: grid;
+    grid: 1fr / 1fr;
+    text-align: center;
+  }
+
+  #skills > article, #downloads > article{
+    display: grid;
+    grid: 1fr / 1fr 1fr;
+    justify-items: center;
+  }
+  #projects > article{
+    display: grid;
+    grid: 1fr / 1fr 1fr 1fr
+  }
+
 }
 
-main{
-  display: grid;
 
-  grid: 1fr / 1fr;
-  text-align: center;
+
+#skills section{
+  text-align: left;
 }
