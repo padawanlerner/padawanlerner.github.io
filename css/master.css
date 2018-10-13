@@ -1,0 +1,17 @@
+body {
+  font-family: Helvetica;
+  background-color: #eeeeee;
+}
+
+
+body > header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+main{
+  display: grid;
+
+  grid: 1fr / 1fr;
+  text-align: center;
+}
