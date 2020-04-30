@@ -10,13 +10,11 @@
       text-align: center;
     }
 
-    #app {
-      display: flex;
-      justify-content: space-around;
-    }
-
     canvas {
       border: 2px solid black;
+    }
+    .matrix{
+      /* display:none; */
     }
   </style>
   <!-- uncomment this if you aren't using firefox. Results may vary! -->
@@ -27,73 +25,8 @@
 </head>
 
 <body>
+  <p>Please use Firefox or Chrome</p>
   <div id="app">
-    <div class="mainWrapper">
-      <div class="matrix">
-        <h2>R01</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "a">
-                <mtr>
-                  <mn id = "a_11"></mn>
-                  <mn id = "a_12"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "a_21"></mn>
-                  <mn id = "a_22"></mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-      <div class="matrix">
-        <h2>R12</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "b">
-                <mtr>
-                  <mn id = "b_11"></mn>
-                  <mn id = "b_12"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "b_21"></mn>
-                  <mn id = "b_22"></mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-
-      <div class="matrix">
-        <h2>R02</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "c">
-                <mtr>
-                  <mn id = "c_11"></mn>
-                  <mn id = "c_12"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "c_21"></mn>
-                  <mn id = "c_22"></mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-
-
-    </div>
-
     <div id="animation">
       <canvas id="canvas" width="500" height="300"></canvas>
       <br>
@@ -111,92 +44,6 @@
       <label for="L2">Link 2 length</label>
       <input type="number" name="L2" id="L2" value="1">
     </div>
-    <div class="mainWrapper">
-      <div class="matrix">
-        <h2>T01</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "d">
-                <mtr>
-                  <mn id = "d_11"></mn>
-                  <mn id = "d_12"></mn>
-                  <mn id = "d_13"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "d_21"></mn>
-                  <mn id = "d_22"></mn>
-                  <mn id = "d_23"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "d_31">0</mn>
-                  <mn id = "d_32">0</mn>
-                  <mn id = "d_33">1</mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-      <div class="matrix">
-        <h2>T12</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "e">
-                <mtr>
-                  <mn id = "e_11"></mn>
-                  <mn id = "e_12"></mn>
-                  <mn id = "e_13"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "e_21"></mn>
-                  <mn id = "e_22"></mn>
-                  <mn id = "e_23"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "e_31">0</mn>
-                  <mn id = "e_32">0</mn>
-                  <mn id = "e_33">1</mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-
-      <div class="matrix">
-        <h2>T02</h2>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-            <mo>[</mo>
-              <mtable id = "f">
-                <mtr>
-                  <mn id = "f_11"></mn>
-                  <mn id = "f_12"></mn>
-                  <mn id = "f_13"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "f_21"></mn>
-                  <mn id = "f_22"></mn>
-                  <mn id = "f_23"></mn>
-                </mtr>
-                <mtr>
-                  <mn id = "f_31">0</mn>
-                  <mn id = "f_32">0</mn>
-                  <mn id = "f_33">1</mn>
-                </mtr>
-              </mtable>
-            <mo>]</mo>
-          </mrow>
-
-        </math>
-      </div>
-
-
-    </div>
 
   </div>
   <form id="bottomStuff">
@@ -206,9 +53,158 @@
 
     <label for="y_input">y</label>
     <input type="number" name="y" value="0">
-    <p>The point (<span id = "x_input">0</span>, <span id = "y_input">0</span>) in coordinate frame 2</p>
-    <p>can be represented by the point (<span id = "x_out">0</span>, <span id = "y_out">0</span>) in the world frame<p>
+    <p>The point (<span id="x_input">0</span>, <span id="y_input">0</span>) in coordinate frame 2</p>
+    <p>can be represented by the point (<span id="x_out">0</span>, <span id="y_out">0</span>) in the world frame<p>
   </form>
+
+  <div class="matrix">
+    <h2>T01</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="d">
+          <mtr>
+            <mn id="d_11"></mn>
+            <mn id="d_12"></mn>
+            <mn id="d_13"></mn>
+          </mtr>
+          <mtr>
+            <mn id="d_21"></mn>
+            <mn id="d_22"></mn>
+            <mn id="d_23"></mn>
+          </mtr>
+          <mtr>
+            <mn id="d_31">0</mn>
+            <mn id="d_32">0</mn>
+            <mn id="d_33">1</mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+  <div class="matrix">
+    <h2>T12</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="e">
+          <mtr>
+            <mn id="e_11"></mn>
+            <mn id="e_12"></mn>
+            <mn id="e_13"></mn>
+          </mtr>
+          <mtr>
+            <mn id="e_21"></mn>
+            <mn id="e_22"></mn>
+            <mn id="e_23"></mn>
+          </mtr>
+          <mtr>
+            <mn id="e_31">0</mn>
+            <mn id="e_32">0</mn>
+            <mn id="e_33">1</mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+
+  <div class="matrix">
+    <h2>T02</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="f">
+          <mtr>
+            <mn id="f_11"></mn>
+            <mn id="f_12"></mn>
+            <mn id="f_13"></mn>
+          </mtr>
+          <mtr>
+            <mn id="f_21"></mn>
+            <mn id="f_22"></mn>
+            <mn id="f_23"></mn>
+          </mtr>
+          <mtr>
+            <mn id="f_31">0</mn>
+            <mn id="f_32">0</mn>
+            <mn id="f_33">1</mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+
+
+  <div class="matrix">
+    <h2>R01</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="a">
+          <mtr>
+            <mn id="a_11"></mn>
+            <mn id="a_12"></mn>
+          </mtr>
+          <mtr>
+            <mn id="a_21"></mn>
+            <mn id="a_22"></mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+  <div class="matrix">
+    <h2>R12</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="b">
+          <mtr>
+            <mn id="b_11"></mn>
+            <mn id="b_12"></mn>
+          </mtr>
+          <mtr>
+            <mn id="b_21"></mn>
+            <mn id="b_22"></mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+
+  <div class="matrix">
+    <h2>R02</h2>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>[</mo>
+        <mtable id="c">
+          <mtr>
+            <mn id="c_11"></mn>
+            <mn id="c_12"></mn>
+          </mtr>
+          <mtr>
+            <mn id="c_21"></mn>
+            <mn id="c_22"></mn>
+          </mtr>
+        </mtable>
+        <mo>]</mo>
+      </mrow>
+
+    </math>
+  </div>
+
+
+
   <br>
   <script src="js/2DOFManipulator/constants.js" charset="utf-8"></script>
   <script src="js/2DOFManipulator/classes.js" charset="utf-8"></script>
@@ -216,10 +212,11 @@
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
 
-      let t1_0 = document.getElementById('theta1').value * Math.PI / 180
-      let t2_0 = document.getElementById('theta2').value * Math.PI / 180
       document.getElementById('t1_out').textContent = document.getElementById('theta1').value
       document.getElementById('t2_out').textContent = document.getElementById('theta2').value
+
+      let t1_0 = document.getElementById('theta1').value * Math.PI / 180;
+      let t2_0 = document.getElementById('theta2').value * Math.PI / 180;
 
       const canvas = document.getElementById('canvas')
 
@@ -253,41 +250,51 @@
       document.getElementById('theta1').addEventListener("input", function() {
         let t2 = document.getElementById('theta2').value
         document.getElementById('t1_out').textContent = this.value
-        updateGraphic(this.value * Math.PI / 180, t2 * Math.PI / 180)
+        updateGraphic()
       })
 
       document.getElementById('theta2').addEventListener("input", function() {
         let t1 = document.getElementById('theta1').value
         document.getElementById('t2_out').textContent = this.value
-        updateGraphic(t1 * Math.PI / 180, this.value * Math.PI / 180)
+        updateGraphic()
       })
 
-      document.getElementsByName('x')[0].addEventListener("input",function() {
+      document.getElementsByName('x')[0].addEventListener("input", function() {
         let x_in = parseInt(this.value);
         let y_in = parseInt(document.getElementsByName("y")[0].value);
         document.getElementById('x_input').textContent = this.value;
         document.getElementById('y_input').textContent = document.getElementsByName("y")[0].value
 
-        let out = translatePointT02(x_in,y_in)
+        // updateGraphic()
+
+
+
+        let out = translatePointT02(x_in, y_in)
         document.getElementById('x_out').textContent = out.x
         document.getElementById('y_out').textContent = out.y
 
       })
 
-      document.getElementsByName('y')[0].addEventListener("input",function() {
+      document.getElementsByName('y')[0].addEventListener("input", function() {
         let x_in = parseInt(document.getElementsByName("x")[0].value);
         let y_in = parseInt(this.value);
         document.getElementById('x_input').textContent = document.getElementsByName("x")[0].value;
         document.getElementById('y_input').textContent = this.value;
 
-        let out = translatePointT02(x_in,y_in)
+        // updateGraphic()
+
+
+        let out = translatePointT02(x_in, y_in)
         document.getElementById('x_out').textContent = out.x
         document.getElementById('y_out').textContent = out.y
 
       })
 
 
-      function updateGraphic(t_1, t_2) {
+      function updateGraphic() {
+        let t_1 = document.getElementById('theta1').value * Math.PI / 180;
+        let t_2 = document.getElementById('theta2').value * Math.PI / 180;
+
         let ctx = canvas.getContext("2d")
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         frame0.draw(ctx, canvas, "0")
@@ -382,7 +389,7 @@
 
       }
 
-      function translatePointT02(x,y){
+      function translatePointT02(x, y) {
         let f_11 = parseFloat(document.getElementById('f_11').textContent);
         let f_12 = parseFloat(document.getElementById('f_12').textContent);
         let f_13 = parseFloat(document.getElementById('f_13').textContent);
@@ -390,11 +397,11 @@
         let f_22 = parseFloat(document.getElementById('f_22').textContent);
         let f_23 = parseFloat(document.getElementById('f_23').textContent);
 
-        let x_out = f_11 * x + f_12 * y + f_13*1;
+        let x_out = f_11 * x + f_12 * y + f_13 * 1;
         console.log(document.getElementById('f_13').textContent)
-        let y_out = f_21 * x + f_22 * y + f_23*1;
+        let y_out = f_21 * x + f_22 * y + f_23 * 1;
 
-        return new Point(x_out,y_out)
+        return new Point(x_out, y_out)
 
 
       }
